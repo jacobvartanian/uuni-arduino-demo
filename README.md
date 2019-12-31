@@ -8,7 +8,7 @@
 
 **CAPRI Learning Objective:** I4: Innovation and Creativity (implementing ideas)
 
-**Task Description:**
+### Task Description:
 
 Part 1: Construct a working prototype of an electronic circuit with the following inputs/outputs:
 1. An LED which can be controlled by the Arduino on digital pin 9
@@ -29,6 +29,19 @@ Part 2:
 Part 3:
 1. Modify the above circuit so there are 2 LEDs and 2 push buttons
 2. Modify the source code to add additional functionality to these new components. Refer to the comments within the code for steps on how to do this. The circuit should function as follows:
-   - The LEDs blink in an alternating pattern
+   - The LEDs blink in an **alternating pattern**
    - Each push button is used to control the state of each LED (on or off)
    - The potentiometer controls the rate of blinking
+
+### Marking Criteria Checklist:
+
+| Description | Marks |
+| :- | -: |
+| Source code successfully uploaded to the Arduino  | /2 |
+| LED blinks at constant rate  | /1 |
+| Push button turns on and off LED | /1 |
+| Potentiometer controls rate of blinking | /1 |
+| Additional LED connected | /1 |
+| Additional push button connected | /1 |
+| Source code is modified and uploaded such that the circuit functions as described in part 3 | /3 |
+| TOTAL | /10 |
