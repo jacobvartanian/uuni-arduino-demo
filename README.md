@@ -1,5 +1,7 @@
 # Introduction to Electronics
 
+Download the tutorial slides at: tiny.cc/uuni-arduino
+
 ## Task 1
 
 **Date and Time:** Monday 13th January 2020, 2:20pm – 3:30pm
