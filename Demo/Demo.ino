@@ -15,6 +15,8 @@
 
   There are many ways the code below can be made more efficient. Think about how this could be done and discuss with your peers.
 
+  QUESTION: While the button is held down, the program is paused until the button is released. Why is this the case? Find the section of code that is causing this.
+
   Author: Jacob Vartanian
   Date: December 2019
 */
@@ -26,9 +28,12 @@
 #define BUTTON_B_PIN  3
 #define DIAL_PIN      A0
 
+#define MIN_BLINK_DELAY 50
+#define MAX_BLINK_DELAY 600
+
 // Set up some global variables to store the state of each LED.
-int led_a = LOW;
-int led_b = LOW;
+int led_a = HIGH;
+int led_b = HIGH;
 
 // This will store last time LED was updated
 unsigned long previous_millis = 0;
@@ -38,6 +43,9 @@ int blink_state = LOW;
 
 // The code here will run once when the Arduino is powered on or reset
 void setup() {
+  // Open a connection to the computer. This way we can display values on the screen
+  Serial.begin(9600);
+  
   // Initialize the LED pins as an output
   pinMode(LED_A_PIN, OUTPUT);
   pinMode(LED_B_PIN, OUTPUT);
@@ -60,7 +68,8 @@ void loop() {
       // Make sure the led is off if it is supposed to be
       digitalWrite(LED_A_PIN, LOW);
     }
-
+    // Delay a short amount of time for debouncing
+    delay(10);
     // Wait until the button is released
     while (digitalRead(BUTTON_A_PIN) == LOW)
     {
@@ -78,7 +87,8 @@ void loop() {
       // Make sure the led is off if it is supposed to be
       digitalWrite(LED_B_PIN, LOW);
     }
-
+    // Delay a short amount of time for debouncing
+    delay(10);
     // Wait until the button is released
     while (digitalRead(BUTTON_B_PIN) == LOW)
     {
@@ -87,14 +97,15 @@ void loop() {
   }
 
   // Store the value of the dial in a local variable called blink_delay
-  int blink_delay = analogRead(DIAL_PIN);
+  int dial_position = analogRead(DIAL_PIN);
 
   // Map the value of blink_delay to be between 100 and 1000 instead of 0 to 1023
-  map(blink_delay, 0, 1023, 100, 1000);
+  int blink_delay = map(dial_position, 0, 1023, MIN_BLINK_DELAY, MAX_BLINK_DELAY);
 
   // Get the number of milliseconds that have passed since the Arduino was powered on or reset
   unsigned long current_millis = millis();
 
+  Serial.println(blink_delay);
   // Check to see if it's time to change the blink_state variable, that is, if the difference
   // between the current time and last time we changed the blink_state variable is greater than
   // the interval we want to blink the LED.

@@ -35,6 +35,10 @@ Part 3:
    - Each push button is used to control the state of each LED (on or off)
    - The potentiometer controls the rate of blinking
 
+Discussion:
+1. There are many ways the code below can be made more efficient. Think about how this could be done and discuss with your peers.
+2. While the button is held down, the program is paused until the button is released. Why is this the case? Find the section of code that is causing this.
+
 ### Marking Criteria Checklist:
 
 | Description | Marks |
