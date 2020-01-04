@@ -1,6 +1,6 @@
 # Introduction to Electronics
 
-Download the tutorial slides at: [tiny.cc/uuni-arduino](tiny.cc/uuni-arduino)
+Download the tutorial slides at: [tiny.cc/uuni-arduino](https://tiny.cc/uuni-arduino)
 
 ## Task 1
 
